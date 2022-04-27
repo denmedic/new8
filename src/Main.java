@@ -4,25 +4,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        task1(2000);
-        task2(1, 2014);
-        task3(110);
-        task4("abccffggtt");
+        checkLeapYear(2000);
+        checkAppForDevice(1, 2022);
+        checkDeliveryDays(110);
+        checkDuplicates("abccffggtt");
 
         int [] arr = {1,2,3,4,5};
         System.out.println(Arrays.toString(arr));
-        task5(arr);
+        revertArray(arr);
         System.out.println(Arrays.toString(arr));
-
-
-
     }
-
-
 
     //Задание 1
 
-    public static void task1(int year) {
+    private static void checkLeapYear(int year) {
         if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
             System.out.println(year + " год является високосным.");
         } else {
@@ -31,7 +26,7 @@ public class Main {
     }
     // Задание 2
 
-    public static void task2(int client, int clientyear) {
+    private static void checkAppForDevice(int client, int clientyear) {
 
         if (client == 0 && clientyear < 2015) {
             System.out.println("Установите облегченную версию приложения для iOS по ссылке.");
@@ -45,13 +40,13 @@ public class Main {
     }
     // Задание 3
 
-    public static void task3(int deliveryDistance) {
+    private static void checkDeliveryDays(int deliveryDistance) {
 
         if (deliveryDistance <= 20) {
             System.out.println("Для доставки потебуется 1 день.");
-        } else if (deliveryDistance >= 20 && deliveryDistance <= 60) {
+        } else if (deliveryDistance <= 20 && deliveryDistance >= 60) {
             System.out.println("Для доставки потебуется 2 дня.");
-        } else if (deliveryDistance >= 60 && deliveryDistance <= 100) {
+        } else if (deliveryDistance <= 60 && deliveryDistance >= 100) {
             System.out.println("Для доставки потебуется 3 дня.");
         } else {
             System.out.println("Доставка не возможна.");
@@ -59,18 +54,17 @@ public class Main {
     }
 
     //Задание 4
-    public static void task4(String line) {
+    private static void checkDuplicates(String line) {
         for (int i = 0; i < line.length() - 1; i++)
             if (line.charAt(i) == line.charAt(i + 1)) {
                 System.out.println("Дубль найден " + line.charAt(i));
                 return;
             }
-
         System.out.println("Дубль не найден");
     }
 
     //Задание 5
-    public static void task5(int[] arr) {
+    private static void revertArray(int[] arr) {
         for (int i = 0; i < arr.length-1; i++) {
             arr[i]=arr[arr.length-1-i];
         }
